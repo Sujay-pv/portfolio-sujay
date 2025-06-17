@@ -25,6 +25,9 @@ import meta from "./company/meta.png";
 import shopify from "./company/shopify.png";
 import starbucks from "./company/starbucks.png";
 import tesla from "./company/tesla.png";
+import capgemini from "../assets/company/capgemini.png";
+import independent from "./company/rocket.png";
+import horizon from "./company/horizon.png";
 
 import carrent from "./carrent.png";
 import jobit from "./jobit.png";
@@ -59,4 +62,7 @@ export {
   carrent,
   jobit,
   tripguide,
+  capgemini,
+  independent,
+  horizon,
 };

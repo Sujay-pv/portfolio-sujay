@@ -23,6 +23,10 @@ import {
   jobit,
   tripguide,
   threejs,
+  capgemini,
+  independent,
+  horizon,
+  
 } from "../assets";
 
 export const navLinks = [
@@ -42,19 +46,19 @@ export const navLinks = [
 
 const services = [
   {
-    title: "Web Developer",
+    title: "Full Stack Tinkerer",
     icon: web,
   },
   {
-    title: "React Native Developer",
+    title: "React.JS Developer",
     icon: mobile,
   },
   {
-    title: "Backend Developer",
+    title: "REST APIs with Java & Node",
     icon: backend,
   },
   {
-    title: "Content Creator",
+    title: "AI & Automation Enthusiast",
     icon: creator,
   },
 ];
@@ -115,56 +119,41 @@ const technologies = [
 ];
 
 const experiences = [
+
   {
     title: "React.js Developer",
-    company_name: "Starbucks",
-    icon: starbucks,
-    iconBg: "#383E56",
-    date: "March 2020 - April 2021",
-    points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
-    ],
-  },
-  {
-    title: "React Native Developer",
-    company_name: "Tesla",
-    icon: tesla,
+    company_name: "Horizon Ventures",
+    icon: horizon,
     iconBg: "#E6DEDD",
-    date: "Jan 2021 - Feb 2022",
+    date: "Sep 2023 - Jan 2023",
     points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
+      "Independently developed a responsive and dynamic Single Page Application (SPA) using React.js for an Environmental Consulting firm to showcase their products and services.",
+      "Implemented reusable components, smooth navigation, and clean UI/UX optimized for performance and user engagement.",
+      "Delivered the project end-to-end, from requirement gathering to deployment, ensuring cross-device compatibility, basic SEO, and a polished user experience.",
     ],
   },
   {
-    title: "Web Developer",
-    company_name: "Shopify",
-    icon: shopify,
+    title: "Analyst / Full Stack Developer",
+    company_name: "Capgemini",
+    icon: capgemini,
     iconBg: "#383E56",
-    date: "Jan 2022 - Jan 2023",
+    date: "Feb 2024 - Present",
     points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
+      "Contributed to the maintenance of internal tools, ensuring reliability and performance across client-facing environments.",
+      "Collaborated with cross-functional teams to analyze issues, resolve bugs, and deliver minor feature enhancements based on business requirements.",
+      "Gained hands-on experience with real-world production systems, improving skills in debugging, documentation, and stakeholder communication.",
     ],
   },
   {
-    title: "Full stack Developer",
-    company_name: "Meta",
-    icon: meta,
+    title: "Independent Developer",
+    
+    icon: independent,
     iconBg: "#E6DEDD",
-    date: "Jan 2023 - Present",
+    date: "Jan 2025 - Present",
     points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
+      "Building AI-powered tools like Invoxa (invoice generator) and GenMail (Email Assistant), using LLM APIs like Gemini API and OpenAI API.",
+      "Developing SaaS-style applications that address real-world productivity and business needs using React, Node.js and Spring Boot",
+      "Actively learning and applying new technologies to expand full-stack capabilities.",
     ],
   },
 ];
