@@ -32,6 +32,8 @@ import horizon from "./company/horizon.png";
 import carrent from "./carrent.png";
 import jobit from "./jobit.png";
 import tripguide from "./tripguide.png";
+import Fitpulse from "../assets/Fitpulseproject.jpg";
+import StaffEase from "../assets/StaffEase.png";
 
 export {
   logo,
@@ -65,4 +67,6 @@ export {
   capgemini,
   independent,
   horizon,
+  Fitpulse,
+  StaffEase,
 };

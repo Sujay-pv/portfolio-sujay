@@ -26,8 +26,11 @@ import {
   capgemini,
   independent,
   horizon,
-  
+  Fitpulse,
+  StaffEase,
 } from "../assets";
+
+
 
 export const navLinks = [
   {
@@ -119,7 +122,6 @@ const technologies = [
 ];
 
 const experiences = [
-
   {
     title: "React.js Developer",
     company_name: "Horizon Ventures",
@@ -146,7 +148,7 @@ const experiences = [
   },
   {
     title: "Independent Developer",
-    
+
     icon: independent,
     iconBg: "#E6DEDD",
     date: "Jan 2025 - Present",
@@ -155,6 +157,39 @@ const experiences = [
       "Developing SaaS-style applications that address real-world productivity and business needs using React, Node.js and Spring Boot",
       "Actively learning and applying new technologies to expand full-stack capabilities.",
     ],
+  },
+];
+
+const techStackIcons = [
+  {
+    name: "React Developer",
+    modelPath: "/models/react_logo-transformed.glb",
+    scale: 1,
+    rotation: [0, 0, 0],
+  },
+  {
+    name: "Java Developer",
+    modelPath: "/models/java.glb",
+    scale: 1.4,
+    rotation: [0, 0, 0],
+  },
+  {
+    name: "MERN Developer",
+    modelPath: "/models/node-transformed.glb",
+    scale: 5,
+    rotation: [0, -Math.PI / 2, 0],
+  },
+  {
+    name: "Interactive Developer",
+    modelPath: "/models/three.js-transformed.glb",
+    scale: 0.05,
+    rotation: [0, 0, 0],
+  },
+  {
+    name: "CI/CD & DevOps",
+    modelPath: "/models/docker.glb",
+    scale: 1.5,
+    rotation: [0, -Math.PI / 4, 0],
   },
 ];
 
@@ -187,30 +222,34 @@ const testimonials = [
 
 const projects = [
   {
-    name: "Car Rent",
+    name: "GenMail - Email Assistant",
     description:
-      "Web-based platform that allows users to search, book, and manage car rentals from various providers, providing a convenient and efficient solution for transportation needs.",
+      "GenMail is a smart email assistant that generates context-aware, customizable responses directly within Gmail via a seamless Chrome extension and web app. Designed to save time and reduce repetitive writing, it offers tone selection, auto thread detection, and smooth integration for effortless email automation.",
     tags: [
       {
-        name: "react",
+        name: "react.js",
         color: "blue-text-gradient",
       },
       {
-        name: "mongodb",
+        name: "spring boot",
         color: "green-text-gradient",
       },
       {
-        name: "tailwind",
+        name: "tailwindcss",
+        color: "pink-text-gradient",
+      },
+      {
+        name: "chrome manifest",
         color: "pink-text-gradient",
       },
     ],
-    image: carrent,
-    source_code_link: "https://github.com/",
+    image: tripguide,
+    source_code_link: "https://github.com/Sujay-pv/ai-email-generator",
   },
   {
-    name: "Job IT",
+    name: "Staff Ease",
     description:
-      "Web application that enables users to search for job openings, view estimated salary ranges for positions, and locate available jobs based on their current location.",
+      "StaffEase is an employee management system equipped with a custom-built resume parser to streamline candidate onboarding and data extraction. It automates the process of parsing resumes and managing employee records, improving efficiency and reducing manual effort.",
     tags: [
       {
         name: "react",
@@ -225,30 +264,68 @@ const projects = [
         color: "pink-text-gradient",
       },
     ],
-    image: jobit,
+    image: StaffEase,
     source_code_link: "https://github.com/",
   },
   {
-    name: "Trip Guide",
+    name: "Fitpulse",
     description:
-      "A comprehensive travel booking platform that allows users to book flights, hotels, and rental cars, and offers curated recommendations for popular destinations.",
+      "Fitulse is an all-in-one online platform offering fitness and wellness content, home workout equipment, and access to nearby gyms for users of all experience levels. It provides a convenient and affordable way to stay healthy, whether you prefer exercising at home or at a gym.",
     tags: [
       {
-        name: "nextjs",
+        name: "react",
         color: "blue-text-gradient",
       },
       {
-        name: "supabase",
+        name: "mongodb",
         color: "green-text-gradient",
       },
       {
-        name: "css",
+        name: "express",
+        color: "pink-text-gradient",
+      },
+      {
+        name: "node.js",
         color: "pink-text-gradient",
       },
     ],
-    image: tripguide,
-    source_code_link: "https://github.com/",
+    image: Fitpulse,
+    source_code_link: "https://github.com/Sujay-pv/Fitpulse",
   },
+  {
+    name: "HeyInvoice - In Progress",
+    description:
+      "HeyInvoice is an AI-powered tool that lets users generate professional invoices through natural chat input, offering a seamless and intuitive experience. With voice support coming soon, it aims to deliver a fully hands-free, end-to-end invoicing solution in just seconds.",
+    tags: [
+      {
+        name: "react.js",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "node.js",
+        color: "green-text-gradient",
+      },
+      {
+        name: "express.js",
+        color: "pink-text-gradient",
+      },
+      {
+        name: "mongodb",
+        color: "pink-text-gradient",
+      },
+    ],
+    // image: tripguide,
+    // source_code_link: "https://github.com/Sujay-pv/",
+  },
+  
+  
 ];
 
-export { services, technologies, experiences, testimonials, projects };
+export {
+  services,
+  technologies,
+  experiences,
+  testimonials,
+  projects,
+  techStackIcons,
+};
