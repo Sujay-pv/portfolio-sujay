@@ -7,6 +7,9 @@ import { motion } from "framer-motion";
 import { styles } from "../styles";
 import { textVariant } from "../utils/motion";
 import { SectionWrapper } from "../hoc";
+import { useEffect } from "react";
+
+
 
 
 const Tech = () => {
@@ -32,6 +35,13 @@ const Tech = () => {
       }
     );
   });
+  useEffect(() => {
+  requestIdleCallback(() => {
+    techStackIcons.forEach((icon) => {
+      useGLTF.preload(icon.modelPath);
+    });
+  });
+}, []);
 
   return (
     <div id="skills" className="flex-center section-padding">
