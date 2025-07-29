@@ -28,6 +28,7 @@ import {
   horizon,
   Fitpulse,
   StaffEase,
+  GenMail,
 } from "../assets";
 
 
@@ -153,7 +154,7 @@ const experiences = [
     iconBg: "#E6DEDD",
     date: "Jan 2025 - Present",
     points: [
-      "Building AI-powered tools like Invoxa (invoice generator) and GenMail (Email Assistant), using LLM APIs like Gemini API and OpenAI API.",
+      "Building AI-powered tools like WhisprBill (invoice generator) and GenMail (Email Assistant), using LLM APIs like Gemini API and OpenAI API.",
       "Developing SaaS-style applications that address real-world productivity and business needs using React, Node.js and Spring Boot",
       "Actively learning and applying new technologies to expand full-stack capabilities.",
     ],
@@ -243,7 +244,7 @@ const projects = [
         color: "pink-text-gradient",
       },
     ],
-    image: tripguide,
+    image: GenMail,
     source_code_link: "https://github.com/Sujay-pv/ai-email-generator",
   },
   {
@@ -270,7 +271,7 @@ const projects = [
   {
     name: "Fitpulse",
     description:
-      "Fitulse is an all-in-one online platform offering fitness and wellness content, home workout equipment, and access to nearby gyms for users of all experience levels. It provides a convenient and affordable way to stay healthy, whether you prefer exercising at home or at a gym.",
+      "Fitpulse is an all-in-one online platform offering fitness and wellness content, home workout equipment, and access to nearby gyms for users of all experience levels. It provides a convenient and affordable way to stay healthy, whether you prefer exercising at home or at a gym.",
     tags: [
       {
         name: "react",
@@ -293,9 +294,9 @@ const projects = [
     source_code_link: "https://github.com/Sujay-pv/Fitpulse",
   },
   {
-    name: "HeyInvoice - In Progress",
+    name: "WhisprBill - In Progress",
     description:
-      "HeyInvoice is an AI-powered tool that lets users generate professional invoices through natural chat input, offering a seamless and intuitive experience. With voice support coming soon, it aims to deliver a fully hands-free, end-to-end invoicing solution in just seconds.",
+      "WhisprBill is an AI-powered tool that lets users generate professional invoices through natural chat input, offering a seamless and intuitive experience. With voice support coming soon, it aims to deliver a fully hands-free, end-to-end invoicing solution in just seconds.",
     tags: [
       {
         name: "react.js",
