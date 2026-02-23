@@ -29,9 +29,8 @@ import {
   Fitpulse,
   StaffEase,
   GenMail,
+  Whisprbill,
 } from "../assets";
-
-
 
 export const navLinks = [
   {
@@ -223,6 +222,32 @@ const testimonials = [
 
 const projects = [
   {
+    name: "WhisprBill",
+    description:
+      "WhisprBill is an AI-powered tool that lets users generate professional invoices through natural chat input, offering a seamless and intuitive experience. With voice support coming soon, it aims to deliver a fully hands-free, end-to-end invoicing solution in just seconds.",
+    tags: [
+      {
+        name: "react.js",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "node.js",
+        color: "green-text-gradient",
+      },
+      {
+        name: "express.js",
+        color: "pink-text-gradient",
+      },
+      {
+        name: "mongodb",
+        color: "pink-text-gradient",
+      },
+    ],
+    image: Whisprbill,
+    // source_code_link: "https://github.com/Sujay-pv/",
+    live_link: "https://whisprbill.com",
+  },
+  {
     name: "GenMail - Email Assistant",
     description:
       "GenMail is a smart email assistant that generates context-aware, customizable responses directly within Gmail via a seamless Chrome extension and web app. Designed to save time and reduce repetitive writing, it offers tone selection, auto thread detection, and smooth integration for effortless email automation.",
@@ -293,33 +318,6 @@ const projects = [
     image: Fitpulse,
     source_code_link: "https://github.com/Sujay-pv/Fitpulse",
   },
-  {
-    name: "WhisprBill - In Progress",
-    description:
-      "WhisprBill is an AI-powered tool that lets users generate professional invoices through natural chat input, offering a seamless and intuitive experience. With voice support coming soon, it aims to deliver a fully hands-free, end-to-end invoicing solution in just seconds.",
-    tags: [
-      {
-        name: "react.js",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "node.js",
-        color: "green-text-gradient",
-      },
-      {
-        name: "express.js",
-        color: "pink-text-gradient",
-      },
-      {
-        name: "mongodb",
-        color: "pink-text-gradient",
-      },
-    ],
-    // image: tripguide,
-    // source_code_link: "https://github.com/Sujay-pv/",
-  },
-  
-  
 ];
 
 export {

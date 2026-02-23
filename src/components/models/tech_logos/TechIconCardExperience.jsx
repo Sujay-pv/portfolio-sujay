@@ -1,29 +1,17 @@
 import {
-  Environment,
   Float,
   OrbitControls,
   useGLTF,
 } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
-import { Suspense, useEffect } from "react";
-import * as THREE from "three";
+import { Suspense } from "react";
 import { useInView } from "react-intersection-observer";
 
 const Model = ({ model }) => {
   const scene = useGLTF(model.modelPath);
 
-  useEffect(() => {
-    if (model.name === "Interactive Developer") {
-      scene.scene.traverse((child) => {
-        if (child.isMesh && child.name === "Object_5") {
-          child.material = new THREE.MeshStandardMaterial({ color: "white" });
-        }
-      });
-    }
-  }, [scene, model.name]);
-
   return (
-    <Float speed={5.5} rotationIntensity={0.5} floatIntensity={0.9}>
+    <Float speed={2.8} rotationIntensity={0.5} floatIntensity={0.7}>
       <group scale={model.scale} rotation={model.rotation}>
         <primitive object={scene.scene} />
       </group>
@@ -41,22 +29,25 @@ const TechIconCardExperience = ({ model }) => {
     <div ref={ref} className="w-full h-full">
       {inView && (
         <Canvas
-          dpr={[1, 1.5]} // Lower render load on high-DPI screens
+          frameloop='demand'
+          dpr={[1, 1.25]}
           gl={{ powerPreference: "high-performance", antialias: false }}
+          performance={{ min: 0.6 }}
         >
-          <ambientLight intensity={0.3} />
-          <directionalLight position={[5, 5, 5]} intensity={1} />
+          <ambientLight intensity={0.5} />
+          <hemisphereLight intensity={0.55} groundColor='#1b2030' />
+          <directionalLight position={[5, 6, 5]} intensity={1.25} />
+          <directionalLight position={[-4, 2, 3]} intensity={0.5} />
           <spotLight
             position={[10, 15, 10]}
             angle={0.3}
             penumbra={1}
-            intensity={2}
+            intensity={1.25}
           />
-          <Environment preset="city" />
           <Suspense fallback={null}>
             <Model model={model} />
           </Suspense>
-          <OrbitControls enableZoom={false} />
+          <OrbitControls enableZoom={false} enablePan={false} />
         </Canvas>
       )}
     </div>

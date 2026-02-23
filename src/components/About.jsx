@@ -4,7 +4,6 @@ import { Tilt } from 'react-tilt'
 import { styles } from '../styles'
 import { services } from '../constants'
 import { fadeIn, textVariant } from '../utils/motion'
-import { logo } from '../assets'
 import { SectionWrapper } from '../hoc'
 
 
@@ -29,20 +28,20 @@ const ServiceCard = ({index,title,icon}) =>{
 const About = () => {
   return (
     <>
-    <motion.div variants={textVariant()}>
+    <motion.div variants={textVariant()} className='text-center'>
     <p className={styles.sectionSubText}>Introduction</p>
     <h2 className={styles.sectionHeadText}>Overview.</h2>
     </motion.div>
 
-    <motion.p variants={fadeIn("","",0.1,1)} className='mt-4 text-secondary text-[17px] max-w-6xl leading-[30px]'>
-          I’m a full-stack developer with experience in React, Java Spring Boot, MERN, and AI-powered apps. I enjoy building web applications that solve real problems — from streamlining workflows to enhancing user experiences.
+    <motion.p variants={fadeIn("","",0.1,1)} className='mt-4 text-secondary text-[17px] max-w-6xl mx-auto text-center leading-[30px]'>
+          I'm a full-stack developer with experience in React, Java Spring Boot, MERN, and AI-powered apps. I enjoy building web applications that solve real problems - from streamlining workflows to enhancing user experiences.
 
-    I love learning new tools, tackling tough challenges, and diving deep into code — especially when it makes something better. Whether it’s developing RESTful APIs or crafting smooth interfaces, I aim to write clean, maintainable code that brings real value.
+    I love learning new tools, tackling tough challenges, and diving deep into code - especially when it makes something better. Whether it's developing RESTful APIs or crafting smooth interfaces, I aim to write clean, maintainable code that brings real value.
 
-    If you're into building things that matter — we’re already on the same page.
+    If you're into building things that matter - we're already on the same page.
     </motion.p>
 
-    <div className='mt-20 flex flex-wrap gap-10'>
+    <div className='mt-20 flex flex-wrap justify-center gap-10'>
       {services.map((service, index) =>(
         <ServiceCard key={service.title} index = {index} {...service}/>
       ))} </div>

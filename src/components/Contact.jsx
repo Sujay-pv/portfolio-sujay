@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
+import { useInView } from "react-intersection-observer";
 
 import { styles } from "../styles";
 import { EarthCanvas } from "./canvas";
@@ -16,6 +17,10 @@ const Contact = () => {
   });
 
   const [loading, setLoading] = useState(false);
+  const { ref: earthRef, inView: showEarth } = useInView({
+    triggerOnce: true,
+    threshold: 0.2,
+  });
 
   const handleChange = (e) => {
     const { target } = e;
@@ -126,8 +131,9 @@ const Contact = () => {
       <motion.div
         variants={slideIn("right", "tween", 0.2, 1)}
         className='xl:flex-1 xl:h-auto md:h-[550px] h-[350px]'
+        ref={earthRef}
       >
-        <EarthCanvas />
+        {showEarth ? <EarthCanvas /> : <div className='w-full h-full bg-tertiary/25 rounded-2xl' />}
       </motion.div>
     </div>
   );

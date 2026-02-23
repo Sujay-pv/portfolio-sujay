@@ -8,6 +8,13 @@ import { SectionWrapper } from "../hoc";
 import { projects } from "../constants";
 import { fadeIn, textVariant } from "../utils/motion";
 
+const tagStyles = {
+  "blue-text-gradient": "bg-sky-500/15 text-sky-200 border-sky-400/30",
+  "green-text-gradient": "bg-emerald-500/15 text-emerald-200 border-emerald-400/30",
+  "pink-text-gradient": "bg-fuchsia-500/15 text-fuchsia-200 border-fuchsia-400/30",
+  "orange-text-gradient": "bg-amber-500/15 text-amber-200 border-amber-400/30",
+};
+
 const ProjectCard = ({
   index,
   name,
@@ -15,52 +22,81 @@ const ProjectCard = ({
   tags,
   image,
   source_code_link,
+  live_link,
 }) => {
+  const shortDescription =
+    description.length > 190 ? `${description.slice(0, 187)}...` : description;
+
   return (
-    <motion.div variants={fadeIn("up", "spring", index * 0.5, 0.75)}>
+    <motion.div variants={fadeIn("up", "spring", index * 0.3, 0.75)} className='w-full'>
       <Tilt
         options={{
-          max: 45,
-          scale: 1,
+          max: 20,
+          scale: 1.02,
           speed: 450,
         }}
-        className='bg-tertiary p-5 rounded-2xl sm:w-[360px] w-full'
+        className='w-full h-full'
       >
-        <div className='relative w-full h-[230px]'>
-          <img
-            src={image}
-            alt='project_image'
-            className='w-full h-full object-cover rounded-2xl'
-          />
-
-          <div className='absolute inset-0 flex justify-end m-3 card-img_hover'>
-            <div
-              onClick={() => window.open(source_code_link, "_blank")}
-              className='black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer'
-            >
+        <div className='bg-tertiary/90 border border-white/10 rounded-3xl p-6 shadow-[0_20px_60px_-25px_rgba(0,0,0,0.65)] h-full'>
+          <div className='relative w-full h-[280px] rounded-2xl overflow-hidden'>
+            {image ? (
               <img
-                src={github}
-                alt='source code'
-                className='w-1/2 h-1/2 object-contain'
+                src={image}
+                alt='project_image'
+                className='w-full h-full object-cover'
               />
-            </div>
+            ) : (
+              <div className='w-full h-full bg-gradient-to-br from-[#1d1836] to-[#0b0f1f] flex items-center justify-center px-6'>
+                <p className='text-white/80 text-center text-lg font-semibold'>
+                  {name}
+                </p>
+              </div>
+            )}
+
+            {source_code_link && (
+              <div className='absolute inset-0 flex justify-end m-3 card-img_hover'>
+                <button
+                  type='button'
+                  onClick={() => window.open(source_code_link, "_blank")}
+                  className='black-gradient w-11 h-11 rounded-full flex justify-center items-center cursor-pointer border border-white/20'
+                >
+                  <img
+                    src={github}
+                    alt='source code'
+                    className='w-1/2 h-1/2 object-contain'
+                  />
+                </button>
+              </div>
+            )}
           </div>
-        </div>
 
-        <div className='mt-5'>
-          <h3 className='text-white font-bold text-[24px]'>{name}</h3>
-          <p className='mt-2 text-secondary text-[14px]'>{description}</p>
-        </div>
+          <div className='mt-6'>
+            <h3 className='text-white font-bold text-[26px] leading-tight'>{name}</h3>
+            <p className='mt-3 text-secondary text-[15px] leading-7'>{shortDescription}</p>
+          </div>
 
-        <div className='mt-4 flex flex-wrap gap-2'>
-          {tags.map((tag) => (
-            <p
-              key={`${name}-${tag.name}`}
-              className={`text-[14px] ${tag.color}`}
-            >
-              #{tag.name}
-            </p>
-          ))}
+          <div className='mt-5 flex flex-wrap gap-2.5'>
+            {tags.map((tag) => (
+              <span
+                key={`${name}-${tag.name}`}
+                className={`inline-flex items-center rounded-full border px-3 py-1 text-[12px] font-medium tracking-[0.02em] ${tagStyles[tag.color] || "bg-white/10 text-white/80 border-white/20"}`}
+              >
+                {tag.name}
+              </span>
+            ))}
+          </div>
+
+          {live_link && (
+            <div className='mt-6'>
+              <button
+                type='button'
+                onClick={() => window.open(live_link, "_blank")}
+                className='inline-flex items-center rounded-xl bg-[#915eff] hover:bg-[#7c4de6] transition-colors duration-200 px-4 py-2 text-sm font-semibold text-white'
+              >
+                Live Demo
+              </button>
+            </div>
+          )}
         </div>
       </Tilt>
     </motion.div>
@@ -70,12 +106,12 @@ const ProjectCard = ({
 const Works = () => {
   return (
     <>
-      <motion.div variants={textVariant()}>
-        <p className={`${styles.sectionSubText} `}>My work</p>
-        <h2 className={`${styles.sectionHeadText}`}>Projects.</h2>
+      <motion.div variants={textVariant()} className='text-center'>
+        <p className={styles.sectionSubText}>My work</p>
+        <h2 className={styles.sectionHeadText}>Projects.</h2>
       </motion.div>
 
-      <div className='w-full flex'>
+      <div className='w-full flex justify-center'>
         <motion.p
           variants={fadeIn("", "", 0.1, 1)}
           className='mt-3 text-secondary text-[17px] max-w-3xl leading-[30px]'
@@ -88,7 +124,7 @@ const Works = () => {
         </motion.p>
       </div>
 
-      <div className='mt-20 flex flex-wrap gap-7'>
+      <div className='mt-16 grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto'>
         {projects.map((project, index) => (
           <ProjectCard key={`project-${index}`} index={index} {...project} />
         ))}

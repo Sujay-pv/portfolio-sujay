@@ -35,6 +35,7 @@ import tripguide from "./tripguide.png";
 import Fitpulse from "../assets/Fitpulseproject.jpg";
 import StaffEase from "../assets/StaffEase.png";
 import GenMail from "../assets/Genmail.png";
+import Whisprbill from "../assets/whisprbill.png";
 
 export {
   logo,
@@ -71,4 +72,5 @@ export {
   Fitpulse,
   StaffEase,
   GenMail,
+  Whisprbill,
 };
