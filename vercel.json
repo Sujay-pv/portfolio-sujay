@@ -1,5 +1,19 @@
 {
   "buildCommand": "npm run build",
   "installCommand": "npm install --legacy-peer-deps",
-  "outputDirectory": "dist"
+  "outputDirectory": "dist",
+
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "sujay-dev.vercel.app"
+        }
+      ],
+      "destination": "https://sujaybuilds.com/$1",
+      "permanent": true
+    }
+  ]
 }
