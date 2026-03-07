@@ -3,17 +3,25 @@
   "installCommand": "npm install --legacy-peer-deps",
   "outputDirectory": "dist",
 
-  "redirects": [
+  "routes": [
     {
-      "source": "/(.*)",
+      "src": "^/(api/.*)",
+      "dest": "/$1"
+    },
+    {
+      "src": "/(.*)",
       "has": [
         {
           "type": "host",
           "value": "sujay-dev.vercel.app"
         }
       ],
-      "destination": "https://sujaybuilds.com/$1",
-      "permanent": true
+      "dest": "https://sujaybuilds.com/$1",
+      "status": 308
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
     }
   ]
 }

@@ -1,14 +1,9 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 import Navbar from "./Navbar";
 import { styles } from "../styles";
 import { fadeIn, textVariant } from "../utils/motion";
-import handler from "../../api/medium";
-
-
-const MEDIUM_API =
-  "https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@sujaybuilds";
 
 const Blog = () => {
   const [posts, setPosts] = useState([]);
@@ -37,15 +32,25 @@ const Blog = () => {
           const description =
             item.querySelector("description")?.textContent || "";
 
-          const imageMatch = description.match(/<img.*?src="(.*?)"/);
-          const image = imageMatch ? imageMatch[1] : null;
+          // Extract image from Medium HTML
+          let image = null;
+          const matches = description.match(/<img[^>]+src="([^">]+)"/g);
 
-          const text = description.replace(/<[^>]+>/g, "").slice(0, 130);
+          if (matches && matches.length > 0) {
+            const lastImage = matches[matches.length - 1];
+            const srcMatch = lastImage.match(/src="([^"]+)"/);
+            image = srcMatch ? srcMatch[1] : null;
+          }
+
+          // Remove HTML tags for excerpt
+          const text = description.replace(/<[^>]+>/g, "").slice(0, 140);
 
           return {
             title,
             slug: link,
-            coverImage: { url: image },
+            coverImage: {
+              url: image || "/blog-placeholder.png",
+            },
             excerpt: text ? `${text}...` : "",
             date: pubDate
               ? new Date(pubDate).toLocaleDateString("en-US", {
@@ -110,7 +115,7 @@ const Blog = () => {
 
         {!loading && hasError && (
           <div className="mt-16 text-center text-secondary">
-            Could not load blogs right now. Please try again in a moment.
+            Could not load blogs right now. Please try again later.
           </div>
         )}
 
@@ -176,7 +181,7 @@ const Blog = () => {
                   </p>
 
                   <div className="mt-5 inline-flex items-center text-sm font-semibold text-[#b8a4ff] group-hover:text-[#d1c3ff] transition-colors">
-                    Read article
+                    Read article →
                   </div>
                 </div>
               </motion.a>
