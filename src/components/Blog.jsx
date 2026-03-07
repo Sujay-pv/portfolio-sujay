@@ -32,17 +32,17 @@ const Blog = () => {
           const description =
             item.querySelector("description")?.textContent || "";
 
-          // Extract image from Medium HTML
-          let image = null;
-          const matches = description.match(/<img[^>]+src="([^">]+)"/g);
+          const content =
+            item.getElementsByTagName("content:encoded")[0]?.textContent || "";
 
-          if (matches && matches.length > 0) {
-            const lastImage = matches[matches.length - 1];
-            const srcMatch = lastImage.match(/src="([^"]+)"/);
-            image = srcMatch ? srcMatch[1] : null;
+          let image = null;
+
+          const imageMatch = content.match(/<img[^>]+src="([^">]+)"/);
+
+          if (imageMatch) {
+            image = imageMatch[1];
           }
 
-          // Remove HTML tags for excerpt
           const text = description.replace(/<[^>]+>/g, "").slice(0, 140);
 
           return {
