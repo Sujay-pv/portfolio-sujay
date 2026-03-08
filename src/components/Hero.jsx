@@ -6,8 +6,8 @@ import { ComputersCanvas } from "./canvas";
 const Hero = ({ onReady }) => {
   const handleDownload = () => {
     const link = document.createElement("a");
-    link.href = "/docs/SujayPV_Resume_FullStack.pdf";
-    link.setAttribute("download", "SujayPV_Resume_FullStack_2026.pdf");
+    link.href = "/docs/SujayPV_Resume_FullStack_2026.pdf";
+    link.setAttribute("download", "SujayPV_Resume.pdf");
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);

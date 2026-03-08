@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Tilt from "react-parallax-tilt";
 import { motion } from "framer-motion";
 
@@ -17,6 +17,8 @@ const tagStyles = {
   "orange-text-gradient": "bg-amber-500/15 text-amber-200 border-amber-400/30",
 };
 
+const DESCRIPTION_MODE = "expandable"; // "expandable" | "full"
+
 const ProjectCard = ({
   index,
   name,
@@ -26,8 +28,12 @@ const ProjectCard = ({
   source_code_link,
   live_link,
 }) => {
-  const shortDescription =
-    description.length > 190 ? `${description.slice(0, 187)}...` : description;
+  const [isExpanded, setIsExpanded] = useState(false);
+  const canTruncate = DESCRIPTION_MODE === "expandable" && description.length > 190;
+  const descriptionText =
+    canTruncate && !isExpanded
+      ? `${description.slice(0, 187)}...`
+      : description;
 
   return (
     <motion.div
@@ -80,8 +86,17 @@ const ProjectCard = ({
               {name}
             </h3>
             <p className="mt-3 text-secondary text-[15px] leading-7">
-              {shortDescription}
+              {descriptionText}
             </p>
+            {canTruncate && (
+              <button
+                type="button"
+                onClick={() => setIsExpanded((prev) => !prev)}
+                className="mt-2 text-sm font-medium text-[#b8a4ff] hover:text-[#d1c3ff] transition-colors"
+              >
+                {isExpanded ? "Show less" : "Read more"}
+              </button>
+            )}
           </div>
 
           <div className="mt-5 flex flex-wrap gap-2.5">
@@ -142,4 +157,4 @@ const Works = () => {
   );
 };
 
-export default SectionWrapper(Works, "");
+export default SectionWrapper(Works, "projects");
